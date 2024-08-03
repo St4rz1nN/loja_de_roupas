@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using LojaRoupasApi.Domain.Dto;
 using LojaRoupasApi.Domain.Interfaces.Services;
+using LojaRoupasApi.ViewModel;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LojaRoupasApi.Api.Controllers
@@ -22,14 +23,14 @@ namespace LojaRoupasApi.Api.Controllers
         }
 
         [HttpPost]
-        public IActionResult Add([FromForm] ProdutoDto produtoDto, IFormFile photo)
+        public IActionResult Add([FromForm] string nome, string tipo, string tamanho, string cor, decimal valor, IFormFile photo)
         {
             var filePath = Path.Combine("Storage", photo.FileName); //Endereço da foto
 
             using Stream fileStream = new FileStream(filePath, FileMode.Create);
             photo.CopyTo(fileStream);
 
-            produtoDto.Photo = filePath;
+            var produtoDto = new ProdutoDto(nome, tipo, tamanho, cor, valor, filePath);
 
             _produtoService.AddAsync(produtoDto);
             return CreatedAtAction(nameof(getPorId), new { id = produtoDto.Id }, produtoDto);

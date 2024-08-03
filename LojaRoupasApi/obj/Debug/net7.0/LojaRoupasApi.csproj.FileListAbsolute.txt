@@ -51,6 +51,7 @@ C:\PROGRAMADOR\ProjetosASP.NET\LojaRoupasApi\LojaRoupasApi\obj\Debug\net7.0\Loja
 C:\PROGRAMADOR\ProjetosASP.NET\LojaRoupasApi\LojaRoupasApi\obj\Debug\net7.0\LojaRoupasApi.csproj.CoreCompileInputs.cache
 C:\PROGRAMADOR\ProjetosASP.NET\LojaRoupasApi\LojaRoupasApi\obj\Debug\net7.0\LojaRoupasApi.MvcApplicationPartsAssemblyInfo.cs
 C:\PROGRAMADOR\ProjetosASP.NET\LojaRoupasApi\LojaRoupasApi\obj\Debug\net7.0\LojaRoupasApi.MvcApplicationPartsAssemblyInfo.cache
+C:\PROGRAMADOR\ProjetosASP.NET\LojaRoupasApi\LojaRoupasApi\obj\Debug\net7.0\LojaRoupasApi.sourcelink.json
 C:\PROGRAMADOR\ProjetosASP.NET\LojaRoupasApi\LojaRoupasApi\obj\Debug\net7.0\staticwebassets.build.json
 C:\PROGRAMADOR\ProjetosASP.NET\LojaRoupasApi\LojaRoupasApi\obj\Debug\net7.0\staticwebassets.development.json
 C:\PROGRAMADOR\ProjetosASP.NET\LojaRoupasApi\LojaRoupasApi\obj\Debug\net7.0\staticwebassets\msbuild.LojaRoupasApi.Microsoft.AspNetCore.StaticWebAssets.props

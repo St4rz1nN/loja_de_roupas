@@ -34,7 +34,5 @@ namespace LojaRoupasApi.Domain.Dto
 
         [Required(ErrorMessage = "O Campo senha é Obrigatorio!")]
         public string Senha { get; set; }
-
-        public ICollection<CarrinhoDto> Carrinhos { get; set; }
     }
 }

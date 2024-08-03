@@ -20,7 +20,7 @@ namespace LojaRoupasApi.Migrations
                 {
                     Id = table.Column<Guid>(type: "char(36)", nullable: false),
                     Nome = table.Column<string>(type: "longtext", nullable: false),
-                    Photo = table.Column<string>(type: "longtext", nullable: false),
+                    Photo = table.Column<string>(type: "longtext", nullable: true),
                     Tipo = table.Column<string>(type: "longtext", nullable: false),
                     Tamanho = table.Column<string>(type: "longtext", nullable: false),
                     Cor = table.Column<string>(type: "longtext", nullable: false),
@@ -89,36 +89,28 @@ namespace LojaRoupasApi.Migrations
                 .Annotation("MySQL:Charset", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "Compra",
+                name: "Compras",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "char(36)", nullable: false),
-                    IdUsuario = table.Column<Guid>(type: "char(36)", nullable: false),
                     IdCarrinho = table.Column<Guid>(type: "char(36)", nullable: false),
                     Data = table.Column<DateTime>(type: "datetime(6)", nullable: false),
-                    Situacao = table.Column<int>(type: "int", nullable: false),
-                    UsuarioId = table.Column<Guid>(type: "char(36)", nullable: false)
+                    Situacao = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Compra", x => x.Id);
+                    table.PrimaryKey("PK_Compras", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Compra_Carrinhos_IdCarrinho",
+                        name: "FK_Compras_Carrinhos_IdCarrinho",
                         column: x => x.IdCarrinho,
                         principalTable: "Carrinhos",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Compra_Usuarios_UsuarioId",
-                        column: x => x.UsuarioId,
-                        principalTable: "Usuarios",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 })
                 .Annotation("MySQL:Charset", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "ItemCarrinho",
+                name: "ItemCarrinhos",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "char(36)", nullable: false),
@@ -128,15 +120,15 @@ namespace LojaRoupasApi.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ItemCarrinho", x => x.Id);
+                    table.PrimaryKey("PK_ItemCarrinhos", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_ItemCarrinho_Carrinhos_IdCarrinho",
+                        name: "FK_ItemCarrinhos_Carrinhos_IdCarrinho",
                         column: x => x.IdCarrinho,
                         principalTable: "Carrinhos",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_ItemCarrinho_Produtos_IdProduto",
+                        name: "FK_ItemCarrinhos_Produtos_IdProduto",
                         column: x => x.IdProduto,
                         principalTable: "Produtos",
                         principalColumn: "Id",
@@ -147,28 +139,22 @@ namespace LojaRoupasApi.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_Carrinhos_IdUsuario",
                 table: "Carrinhos",
-                column: "IdUsuario",
-                unique: true);
+                column: "IdUsuario");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Compra_IdCarrinho",
-                table: "Compra",
+                name: "IX_Compras_IdCarrinho",
+                table: "Compras",
                 column: "IdCarrinho",
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_Compra_UsuarioId",
-                table: "Compra",
-                column: "UsuarioId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_ItemCarrinho_IdCarrinho",
-                table: "ItemCarrinho",
+                name: "IX_ItemCarrinhos_IdCarrinho",
+                table: "ItemCarrinhos",
                 column: "IdCarrinho");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ItemCarrinho_IdProduto",
-                table: "ItemCarrinho",
+                name: "IX_ItemCarrinhos_IdProduto",
+                table: "ItemCarrinhos",
                 column: "IdProduto");
 
             migrationBuilder.CreateIndex(
@@ -182,10 +168,10 @@ namespace LojaRoupasApi.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Compra");
+                name: "Compras");
 
             migrationBuilder.DropTable(
-                name: "ItemCarrinho");
+                name: "ItemCarrinhos");
 
             migrationBuilder.DropTable(
                 name: "ProdutoEstoque");

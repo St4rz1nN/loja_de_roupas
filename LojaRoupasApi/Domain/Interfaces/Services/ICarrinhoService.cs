@@ -6,5 +6,9 @@ namespace LojaRoupasApi.Domain.Interfaces.Services
 {
     public interface ICarrinhoService : IBaseService<CarrinhoDto, Carrinho>
     {
+
+
+        public Task<IEnumerable<ItemCarrinhoDto>> ListarItemsByIdCarrinho(Guid Id);
+
     }
 }

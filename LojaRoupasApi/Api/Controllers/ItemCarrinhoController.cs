@@ -59,6 +59,12 @@ namespace LojaRoupasApi.Api.Controllers
             return Ok(ItemCarrinhoDto);
         }
 
+        [HttpPut("{Id}")]
 
+        public IActionResult Remover(Guid Id)
+        {
+            _ItemCarrinhoService.RemoverPorIdAsync(Id);
+            return Ok(Id);
+        }
     }
 }

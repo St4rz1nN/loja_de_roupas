@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LojaRoupasApi.Migrations
 {
     [DbContext(typeof(ConnectionContext))]
-    [Migration("20240731191525_v1")]
+    [Migration("20240803022141_v1")]
     partial class v1
     {
         /// <inheritdoc />
@@ -33,8 +33,7 @@ namespace LojaRoupasApi.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("IdUsuario")
-                        .IsUnique();
+                    b.HasIndex("IdUsuario");
 
                     b.ToTable("Carrinhos");
                 });
@@ -51,23 +50,15 @@ namespace LojaRoupasApi.Migrations
                     b.Property<Guid>("IdCarrinho")
                         .HasColumnType("char(36)");
 
-                    b.Property<Guid>("IdUsuario")
-                        .HasColumnType("char(36)");
-
                     b.Property<int>("Situacao")
                         .HasColumnType("int");
-
-                    b.Property<Guid>("UsuarioId")
-                        .HasColumnType("char(36)");
 
                     b.HasKey("Id");
 
                     b.HasIndex("IdCarrinho")
                         .IsUnique();
 
-                    b.HasIndex("UsuarioId");
-
-                    b.ToTable("Compra");
+                    b.ToTable("Compras");
                 });
 
             modelBuilder.Entity("LojaRoupasApi.Domain.Models.ItemCarrinho", b =>
@@ -91,7 +82,7 @@ namespace LojaRoupasApi.Migrations
 
                     b.HasIndex("IdProduto");
 
-                    b.ToTable("ItemCarrinho");
+                    b.ToTable("ItemCarrinhos");
                 });
 
             modelBuilder.Entity("LojaRoupasApi.Domain.Models.Produto", b =>
@@ -109,7 +100,6 @@ namespace LojaRoupasApi.Migrations
                         .HasColumnType("longtext");
 
                     b.Property<string>("Photo")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("Tamanho")
@@ -181,8 +171,8 @@ namespace LojaRoupasApi.Migrations
             modelBuilder.Entity("LojaRoupasApi.Domain.Models.Carrinho", b =>
                 {
                     b.HasOne("LojaRoupasApi.Domain.Models.Usuario", "Usuario")
-                        .WithOne("Carrinho")
-                        .HasForeignKey("LojaRoupasApi.Domain.Models.Carrinho", "IdUsuario")
+                        .WithMany("Carrinhos")
+                        .HasForeignKey("IdUsuario")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -197,15 +187,7 @@ namespace LojaRoupasApi.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("LojaRoupasApi.Domain.Models.Usuario", "Usuario")
-                        .WithMany()
-                        .HasForeignKey("UsuarioId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("Carrinho");
-
-                    b.Navigation("Usuario");
                 });
 
             modelBuilder.Entity("LojaRoupasApi.Domain.Models.ItemCarrinho", b =>
@@ -240,8 +222,7 @@ namespace LojaRoupasApi.Migrations
 
             modelBuilder.Entity("LojaRoupasApi.Domain.Models.Carrinho", b =>
                 {
-                    b.Navigation("Compra")
-                        .IsRequired();
+                    b.Navigation("Compra");
 
                     b.Navigation("Items");
                 });
@@ -250,14 +231,12 @@ namespace LojaRoupasApi.Migrations
                 {
                     b.Navigation("ItemCarrinhos");
 
-                    b.Navigation("ProdutoEstoque")
-                        .IsRequired();
+                    b.Navigation("ProdutoEstoque");
                 });
 
             modelBuilder.Entity("LojaRoupasApi.Domain.Models.Usuario", b =>
                 {
-                    b.Navigation("Carrinho")
-                        .IsRequired();
+                    b.Navigation("Carrinhos");
                 });
 #pragma warning restore 612, 618
         }

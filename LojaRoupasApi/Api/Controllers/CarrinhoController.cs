@@ -60,6 +60,13 @@ namespace LojaRoupasApi.Api.Controllers
             return Ok(carrinhoDto);
         }
 
+        [HttpGet("GetItemsByIdCarrinho")]
+        public IActionResult GetItemsByIdCarrinho(Guid Id)
+        {
+            var items = _carrinhoService.ListarItemsByIdCarrinho(Id);
+
+            return Ok(items);
+        }
 
     }
 }

@@ -9,7 +9,6 @@ namespace LojaRoupasApi.Data.Configuration
         public void Configure(EntityTypeBuilder<Compra> builder)
         {
             builder.HasKey(co => co.Id);
-            builder.Property(co => co.IdUsuario).IsRequired();
             builder.Property(co => co.IdCarrinho).IsRequired();
             builder.Property(co => co.Data).IsRequired();
             builder.Property(co => co.Situacao).IsRequired();

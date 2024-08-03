@@ -24,7 +24,6 @@ namespace LojaRoupasApi.Domain.Dto
         public Guid IdProduto { get; set; }
         [Required(ErrorMessage = "O Campo Quantia é Obrigatorio!")]
         public int Quantia { get; set; }
-        public decimal ValorTotal { get; set; }
 
         public CarrinhoDto Carrinho { get; set; }
         public ProdutoDto Produto { get; set; }

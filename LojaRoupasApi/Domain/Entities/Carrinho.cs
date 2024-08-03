@@ -19,20 +19,10 @@ namespace LojaRoupasApi.Domain.Models
 
         public ICollection<ItemCarrinho> Items { get; set; }
 
-        public decimal Total => CalcularTotal();
+        public decimal Total;
 
         public Usuario Usuario { get; set; }
         public Compra Compra { get; set; }
-
-        private decimal CalcularTotal()
-        {
-            decimal total = 0;
-            foreach (var item in Items)
-            {
-                total += item.ValorTotal;
-            }
-            return total;
-        }
 
 
     }

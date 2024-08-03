@@ -15,11 +15,6 @@ namespace LojaRoupasApi.Data.Configuration
             builder.Property(u => u.Datanascimento).IsRequired();
             builder.Property(u => u.Email).IsRequired();
             builder.Property(u => u.Senha).IsRequired();
-
-            builder.HasMany(u => u.Carrinhos)
-                   .WithOne(c => c.Usuario)
-                   .HasForeignKey(c => c.IdUsuario)
-                   .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

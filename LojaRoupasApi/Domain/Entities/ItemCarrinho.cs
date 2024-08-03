@@ -10,8 +10,6 @@ namespace LojaRoupasApi.Domain.Models
         public Guid IdCarrinho { get; set; }
         public Guid IdProduto { get; set; }
         public int Quantia { get; set; }
-
-        public decimal ValorTotal => Produto.Valor * Quantia;
         public Carrinho Carrinho { get; set; }
         public Produto Produto { get; set; }
 

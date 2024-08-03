@@ -1,6 +1,9 @@
 ﻿using LojaRoupasApi.Data.Context;
+using LojaRoupasApi.Domain.Dto;
+using LojaRoupasApi.Domain.Entities.Base;
 using LojaRoupasApi.Domain.Interfaces.Data;
 using LojaRoupasApi.Domain.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace LojaRoupasApi.Data.Repositories
 {
@@ -9,7 +12,6 @@ namespace LojaRoupasApi.Data.Repositories
 
         public ItemCarrinhoRepository(ConnectionContext context) : base(context)
         {
-
         }
     }
 }

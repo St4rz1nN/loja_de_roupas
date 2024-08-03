@@ -10,16 +10,13 @@ namespace LojaRoupasApi.Domain.Dto
         public CompraDto()
             => Id= Guid.NewGuid();
 
-        public CompraDto(Guid idusuario, Guid idcarrinho, DateTime data, int situacao)
+        public CompraDto(Guid idcarrinho, DateTime data, int situacao)
         {
-            this.IdUsuario = idusuario;
             this.IdCarrinho = idcarrinho;
             this.Data = data;
             this.Situacao = situacao;
         }
 
-        [Required(ErrorMessage = "O Campo IDUsuario é Obrigatorio!")]
-        public Guid IdUsuario { get; set; }
 
         [Required(ErrorMessage = "O Campo IDCarrinho é Obrigatorio!")]
         public Guid IdCarrinho { get; set; }
@@ -28,10 +25,7 @@ namespace LojaRoupasApi.Domain.Dto
         public DateTime Data { get; set; }
         [Required(ErrorMessage = "O Campo Situacao é Obrigatorio!")]
         public int Situacao { get; set; }
-        [Required(ErrorMessage = "O Campo ValorTotal é Obrigatorio!")]
-        public decimal ValorTotal { get; set; }
 
-        public UsuarioDto Usuario { get; set; }
         public CarrinhoDto Carrinho { get; set; }
     }
 }

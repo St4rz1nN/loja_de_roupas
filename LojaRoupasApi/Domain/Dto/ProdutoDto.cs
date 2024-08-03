@@ -9,7 +9,7 @@ namespace LojaRoupasApi.Domain.Dto
         public ProdutoDto()
             => Id = Guid.NewGuid();
 
-        public ProdutoDto(string nome,string photo, string tipo, string tamanho, string cor, decimal valor)
+        public ProdutoDto(string nome, string tipo, string tamanho, string cor, decimal valor, string photo)
         {
             this.Nome = nome;
             this.Photo = photo;
@@ -33,7 +33,6 @@ namespace LojaRoupasApi.Domain.Dto
         public decimal Valor { get; set; }
 
         public ProdutoEstoqueDto ProdutoEstoque { get; set; }
-        public ICollection<ItemCarrinhoDto> ItemCarrinhos { get; set; }
    
     }
 }

@@ -9,7 +9,8 @@ namespace LojaRoupasApi.Data.Context
         public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<Produto> Produtos { get; set; }
         public DbSet<Carrinho> Carrinhos { get; set; }
-        public DbSet<ItemCarrinho> ItemCarrinho { get; set; }
+        public DbSet<ItemCarrinho> ItemCarrinhos { get; set; }
+        public DbSet<Compra> Compras { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
