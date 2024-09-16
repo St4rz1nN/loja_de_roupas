@@ -8,10 +8,10 @@ namespace LojaRoupasApi.Domain.Models
     {   
         public Produto()
             => Id = Guid.NewGuid();
-        public Produto(string nome, string tipo, string tamanho, string cor, decimal valor, string photo)
+        public Produto(Guid id, string nome, string tipo, string tamanho, string cor, decimal valor, List<string> photos)
         {
+            this.Id = id;
             this.Nome = nome;
-            this.Photo = photo;
             this.Tipo = tipo;
             this.Tamanho = tamanho;
             this.Cor = cor;
@@ -19,7 +19,6 @@ namespace LojaRoupasApi.Domain.Models
         }
 
         public string Nome { get; set; }
-        public string Photo { get; set; }
 
         public string Tipo { get; set; }
 

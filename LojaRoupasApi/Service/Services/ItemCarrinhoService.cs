@@ -20,9 +20,8 @@ namespace LojaRoupasApi.Service.Services
         }
 
 
-        public override async Task AddAsync(ItemCarrinhoDto itemcarrinho)
+        public override async Task<Guid> AddAsync(ItemCarrinhoDto itemcarrinho)
         {
-
 
             var itemcarrinhos = await _repository.GetAllAsync();
 
@@ -32,13 +31,15 @@ namespace LojaRoupasApi.Service.Services
             {
                 itemcarrinhoencontrado.Quantia += 1;
                 await _repository.UpdateAsync(itemcarrinhoencontrado);
+                return itemcarrinhoencontrado.Id;
             }
             else
             {
                 var itemcarrinhoentity = _mapper.Map<ItemCarrinho>(itemcarrinho);
 
 
-                await _repository.AddAsync(itemcarrinhoentity);
+                Guid id = await _repository.AddAsync(itemcarrinhoentity);
+                return id;
             }
         }
 

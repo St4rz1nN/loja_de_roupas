@@ -6,7 +6,6 @@ using LojaRoupasApi.Domain.Interfaces.Data;
 using LojaRoupasApi.Domain.Interfaces.Base;
 using LojaRoupasApi.Domain.Interfaces.Services;
 using LojaRoupasApi.Service.Services;
-using LojaRoupasApi.Domain.Binders;
 using LojaRoupasApi.Service.AutoMapper;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,10 +13,6 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddControllers();
-builder.Services.AddControllers(options =>
-{
-    options.ModelBinderProviders.Insert(0, new ProdutoDtoBinderProvider());
-});
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddAutoMapper(typeof(AutoMapping));
@@ -55,6 +50,13 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
+
+app.UseCors(options =>
+{
+    options.AllowAnyOrigin()
+           .AllowAnyHeader()
+           .AllowAnyMethod();
+});
 
 app.MapControllers();
 

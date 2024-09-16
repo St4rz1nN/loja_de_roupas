@@ -7,7 +7,7 @@ namespace LojaRoupasApi.Domain.Interfaces.Services
     public interface IItemCarrinhoService : IBaseService<ItemCarrinhoDto, ItemCarrinho>
     {
 
-        public Task AddAsync(ItemCarrinhoDto itemcarrinho);
+        public Task<Guid> AddAsync(ItemCarrinhoDto itemcarrinho);
 
         public Task RemoverPorIdAsync(Guid Id);
 

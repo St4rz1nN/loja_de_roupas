@@ -18,6 +18,11 @@ namespace LojaRoupasApi.Data.Configuration
                    .WithMany(u => u.Carrinhos)
                    .HasForeignKey(c => c.IdUsuario)
                    .OnDelete(DeleteBehavior.Cascade);
+
+            builder.HasOne(c => c.Compra)
+                   .WithOne(co => co.Carrinho)
+                   .HasForeignKey<Carrinho>(c => c.IdCompra)
+                   .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

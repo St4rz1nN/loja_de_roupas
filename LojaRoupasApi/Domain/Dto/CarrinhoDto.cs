@@ -21,6 +21,8 @@ namespace LojaRoupasApi.Domain.Models
         [Required(ErrorMessage = "O Campo IdUsuario é Obrigatorio!")]
         public Guid IdUsuario { get; set; }
 
+        public Guid IdCompra { get; set; }
+
         public ICollection<ItemCarrinhoDto> Items { get; set; }
 
         public decimal Total { get; set; }

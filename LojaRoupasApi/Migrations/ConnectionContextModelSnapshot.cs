@@ -25,6 +25,9 @@ namespace LojaRoupasApi.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("char(36)");
 
+                    b.Property<Guid>("IdCompra")
+                        .HasColumnType("char(36)");
+
                     b.Property<Guid>("IdUsuario")
                         .HasColumnType("char(36)");
 
@@ -96,9 +99,6 @@ namespace LojaRoupasApi.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<string>("Photo")
-                        .HasColumnType("longtext");
-
                     b.Property<string>("Tamanho")
                         .IsRequired()
                         .HasColumnType("longtext");
@@ -113,6 +113,62 @@ namespace LojaRoupasApi.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Produtos");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("1dfc4a8d-7ed1-443c-9cc7-ac71ea9d003b"),
+                            Cor = "Preto",
+                            Nome = "Camisa Basica",
+                            Tamanho = "G",
+                            Tipo = "Camisa",
+                            Valor = 129m
+                        },
+                        new
+                        {
+                            Id = new Guid("1dfc4a8d-7ed1-443c-9cc7-ac71ea9d004b"),
+                            Cor = "Branco",
+                            Nome = "Camisa Basica",
+                            Tamanho = "P",
+                            Tipo = "Camisa",
+                            Valor = 129m
+                        },
+                        new
+                        {
+                            Id = new Guid("1dfc4a8d-7ed1-443c-9cc7-ac71ea9d005b"),
+                            Cor = "Branco",
+                            Nome = "Camisa Basica",
+                            Tamanho = "PP",
+                            Tipo = "Camisa",
+                            Valor = 129m
+                        },
+                        new
+                        {
+                            Id = new Guid("1dfc4a8d-7ed1-443c-9cc7-ac71ea9d006b"),
+                            Cor = "Amarelo",
+                            Nome = "Camisa Basica",
+                            Tamanho = "PP",
+                            Tipo = "Camisa",
+                            Valor = 129m
+                        },
+                        new
+                        {
+                            Id = new Guid("1dfc4a8d-7ed1-443c-9cc7-ac71ea9d007b"),
+                            Cor = "Azul",
+                            Nome = "Camisa Basica",
+                            Tamanho = "M",
+                            Tipo = "Camisa",
+                            Valor = 129m
+                        },
+                        new
+                        {
+                            Id = new Guid("1dfc4a8d-7ed1-443c-9cc7-ac71ea9d008b"),
+                            Cor = "Azul",
+                            Nome = "Camisa Basica Luxo",
+                            Tamanho = "M",
+                            Tipo = "Camisa",
+                            Valor = 129m
+                        });
                 });
 
             modelBuilder.Entity("LojaRoupasApi.Domain.Models.ProdutoEstoque", b =>

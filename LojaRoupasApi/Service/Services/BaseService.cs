@@ -37,10 +37,12 @@ namespace LojaRoupasApi.Service.Services
             return entityDto;
         }
 
-        public virtual async Task AddAsync(TDto entityDto)
+        public virtual async Task<Guid> AddAsync(TDto entityDto)
         {
+            Console.WriteLine("AAAAA");
             var entity = ConvertFromDto(entityDto);
-            await _repositoryBase.AddAsync(entity);
+            Guid id = await _repositoryBase.AddAsync(entity);
+            return id;
         }
 
         public virtual async Task UpdateAsync(TDto entityDto)

@@ -24,6 +24,18 @@ namespace LojaRoupasApi.Data.Context
 
 
             base.OnModelCreating(modelBuilder);
+
+            IList<Produto> produtos = new List<Produto>();
+            produtos.Add(new Produto(Guid.Parse("1dfc4a8d-7ed1-443c-9cc7-ac71ea9d003b"), "Camisa Basica", "Camisa", "G", "Preto", 129, null));
+            produtos.Add(new Produto(Guid.Parse("1dfc4a8d-7ed1-443c-9cc7-ac71ea9d004b"), "Camisa Basica", "Camisa", "P", "Branco", 129, null));
+            produtos.Add(new Produto(Guid.Parse("1dfc4a8d-7ed1-443c-9cc7-ac71ea9d005b"), "Camisa Basica", "Camisa", "PP", "Branco", 129, null));
+            produtos.Add(new Produto(Guid.Parse("1dfc4a8d-7ed1-443c-9cc7-ac71ea9d006b"), "Camisa Basica", "Camisa", "PP", "Amarelo", 129, null));
+            produtos.Add(new Produto(Guid.Parse("1dfc4a8d-7ed1-443c-9cc7-ac71ea9d007b"), "Camisa Basica", "Camisa", "M", "Azul", 129, null));
+            produtos.Add(new Produto(Guid.Parse("1dfc4a8d-7ed1-443c-9cc7-ac71ea9d008b"), "Camisa Basica Luxo", "Camisa", "M", "Azul", 129, null));
+
+            modelBuilder.Entity<Produto>().HasData(produtos);
+
+            
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

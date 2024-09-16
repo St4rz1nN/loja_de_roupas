@@ -6,7 +6,7 @@
 
         Task<TDto> GetByIdAsync(Guid id);
 
-        Task AddAsync(TDto entity);
+        Task<Guid> AddAsync(TDto entity);
 
         Task UpdateAsync(TDto entity);
 

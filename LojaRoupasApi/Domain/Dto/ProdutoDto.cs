@@ -9,18 +9,6 @@ namespace LojaRoupasApi.Domain.Dto
         public ProdutoDto()
             => Id = Guid.NewGuid();
 
-        public ProdutoDto(string nome, string tipo, string tamanho, string cor, decimal valor, string photo)
-        {
-            this.Nome = nome;
-            this.Photo = photo;
-            this.Tipo = tipo;
-            this.Tamanho = tamanho;
-            this.Cor = cor;
-            this.Valor = valor;
-        }
-
-        public string Photo { get; set; }
-
         [Required(ErrorMessage = "O Campo Nome é Obrigatorio!")]
         public string Nome { get; set; }
         [Required(ErrorMessage = "O Campo Tipo é Obrigatorio!")]
@@ -31,8 +19,5 @@ namespace LojaRoupasApi.Domain.Dto
         public string Cor { get; set; }
         [Required(ErrorMessage = "O Campo Valor é Obrigatorio!")]
         public decimal Valor { get; set; }
-
-        public ProdutoEstoqueDto ProdutoEstoque { get; set; }
-   
     }
 }

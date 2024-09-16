@@ -17,6 +17,7 @@ namespace LojaRoupasApi.Domain.Models
 
         public Guid IdUsuario { get; set; }
 
+        public Guid IdCompra { get; set; }
         public ICollection<ItemCarrinho> Items { get; set; }
 
         public decimal Total;

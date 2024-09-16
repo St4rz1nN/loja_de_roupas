@@ -8,7 +8,7 @@ namespace LojaRoupasApi.Data.Repositories
     {
 
         public CarrinhoRepository(ConnectionContext context) : base(context){ 
-        
+            
         }
     }
 }

@@ -24,6 +24,7 @@ namespace LojaRoupasApi.Api.Controllers
         [HttpPost]
         public IActionResult Add([FromBody] CarrinhoDto carrinhoDto)
         {
+
             _carrinhoService.AddAsync(carrinhoDto);
 
             return CreatedAtAction(nameof(getPorId), new { id = carrinhoDto.IdUsuario }, carrinhoDto);
@@ -42,6 +43,19 @@ namespace LojaRoupasApi.Api.Controllers
         {
             var carrinhoDto = _carrinhoService.GetByIdAsync(id);
             return Ok(carrinhoDto);
+        }
+
+        [HttpGet("{idusuario}")]
+
+        public IActionResult getPorIdUsuario(Guid idusuario)
+        {
+            var carrinhoDto = _carrinhoService.GetCarrinhoByIdUsuario(idusuario);
+
+            if (carrinhoDto == null)
+            {
+                return NotFound(); // Retorna não encontrado!
+            }
+            return Ok(carrinhoDto); // Retorna o carrinho!
         }
 
         [HttpDelete("{id}")]

@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using LojaRoupasApi.Domain.Dto;
 using LojaRoupasApi.Domain.Interfaces.Services;
+using LojaRoupasApi.Domain.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LojaRoupasApi.Api.Controllers
@@ -23,7 +24,7 @@ namespace LojaRoupasApi.Api.Controllers
         {
             _CompraService.AddAsync(CompraDto);
 
-            return CreatedAtAction(nameof(getPorId), new { id = CompraDto.Id }, CompraDto);
+            return CreatedAtAction(nameof(GetById), new { id = CompraDto.Id }, CompraDto);
         }
 
 
@@ -36,10 +37,24 @@ namespace LojaRoupasApi.Api.Controllers
 
         [HttpGet("{id}")]
 
-        public IActionResult getPorId(Guid id)
+        public IActionResult GetById(Guid id)
         {
             var CompraDto = _CompraService.GetByIdAsync(id);
             return Ok(CompraDto);
+        }
+
+        [HttpGet("{IdCarrinho}")]
+        public IActionResult GetByIdCarrinho(Guid IdCarrinho)
+        {
+            var ComprasDto = _CompraService.GetCompraByIdCarrinho(IdCarrinho);
+            return Ok(ComprasDto);
+        }
+
+        [HttpGet("{IdUsuario}")]
+        public IActionResult GetByIdUsuario(Guid IdUsuario)
+        {
+            var ComprasDto = _CompraService.GetCompraByIdUsuario(IdUsuario);
+            return Ok(ComprasDto);
         }
 
         [HttpDelete("{id}")]
@@ -57,6 +72,8 @@ namespace LojaRoupasApi.Api.Controllers
             _CompraService.UpdateAsync(CompraDto);
             return Ok(CompraDto);
         }
+
+
 
     }
 }
