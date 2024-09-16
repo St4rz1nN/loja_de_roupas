@@ -1,0 +1,7 @@
+* {
+    margin: 0;
+    padding: 0;
+    height: 100%; /* Garantir que o body e o html ocupem toda a altura da viewport */
+    width: 100%; /* Garantir que o body e o html ocupem toda a largura da viewport */
+    box-sizing: border-box; /* Incluir padding e bordas no tamanho total dos elementos */
+}
