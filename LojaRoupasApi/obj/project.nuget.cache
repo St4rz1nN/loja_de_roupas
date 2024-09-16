@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Jvlx4ruKORU=",
+  "dgSpecHash": "zskQYMr5lNg=",
   "success": true,
-  "projectFilePath": "C:\\PROGRAMADOR\\ProjetosASP.NET\\LojaRoupasApi\\LojaRoupasApi\\LojaRoupasApi.csproj",
+  "projectFilePath": "C:\\PROGRAMADOR\\ProjetosASP.NET\\LojaRoupas\\BackEnd\\LojaRoupasApi\\LojaRoupasApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\mikae\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\mikae\\.nuget\\packages\\google.protobuf\\3.21.9\\google.protobuf.3.21.9.nupkg.sha512",

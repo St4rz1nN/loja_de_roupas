@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\PROGRAMADOR\\ProjetosASP.NET\\LojaRoupasApi\\LojaRoupasApi\\LojaRoupasApi.csproj": {}
+    "C:\\PROGRAMADOR\\ProjetosASP.NET\\LojaRoupas\\BackEnd\\LojaRoupasApi\\LojaRoupasApi.csproj": {}
   },
   "projects": {
-    "C:\\PROGRAMADOR\\ProjetosASP.NET\\LojaRoupasApi\\LojaRoupasApi\\LojaRoupasApi.csproj": {
+    "C:\\PROGRAMADOR\\ProjetosASP.NET\\LojaRoupas\\BackEnd\\LojaRoupasApi\\LojaRoupasApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\PROGRAMADOR\\ProjetosASP.NET\\LojaRoupasApi\\LojaRoupasApi\\LojaRoupasApi.csproj",
+        "projectUniqueName": "C:\\PROGRAMADOR\\ProjetosASP.NET\\LojaRoupas\\BackEnd\\LojaRoupasApi\\LojaRoupasApi.csproj",
         "projectName": "LojaRoupasApi",
-        "projectPath": "C:\\PROGRAMADOR\\ProjetosASP.NET\\LojaRoupasApi\\LojaRoupasApi\\LojaRoupasApi.csproj",
+        "projectPath": "C:\\PROGRAMADOR\\ProjetosASP.NET\\LojaRoupas\\BackEnd\\LojaRoupasApi\\LojaRoupasApi.csproj",
         "packagesPath": "C:\\Users\\mikae\\.nuget\\packages\\",
-        "outputPath": "C:\\PROGRAMADOR\\ProjetosASP.NET\\LojaRoupasApi\\LojaRoupasApi\\obj\\",
+        "outputPath": "C:\\PROGRAMADOR\\ProjetosASP.NET\\LojaRoupas\\BackEnd\\LojaRoupasApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\mikae\\AppData\\Roaming\\NuGet\\NuGet.Config",
