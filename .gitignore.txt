@@ -1,9 +1,4 @@
-# Node.js
-/node_modules
-/build
-/.env
-
-# ASP.NET
+# Ignorar diretórios e arquivos gerados por build
 /bin
 /obj
 *.csproj.user
@@ -13,8 +8,5 @@
 *.bak
 *.backup
 
-# Configurações de IDE
-.vscode/
-.idea/
-*.sublime-project
-*.sublime-workspace
+# Ignorar arquivos específicos do Visual Studio
+.vs/
