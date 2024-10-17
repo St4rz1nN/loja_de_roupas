@@ -8,6 +8,7 @@ import api from '../../services/api.js'
 function VisualizarProduto(){
 
     const [objetos, setObjetos] = useState([]);
+    const [modoAdm, setModoAdm] = useState(false);
 
     const [objetosSelecionados, setObjetosSelecionados] = useState([]);
 
@@ -33,16 +34,22 @@ function VisualizarProduto(){
             const objetosSelecionados = objetos.filter(obj => produtosIDs.includes(obj.id));
             setObjetosSelecionados(objetosSelecionados);
         }
+        const valorRecuperado = JSON.parse(localStorage.getItem('modoadm'));
+        if(valorRecuperado == true){
+            setModoAdm(true);
+        }
     },[objetos]);
 
 
     return(
         <Container>
             <Header
-                titleName="LOJA ROUPAS"
+                administrador={modoAdm}
+                subLinks={!modoAdm}
             />
             <MostrarProdutos
                 Objetos={objetosSelecionados}
+                ModoAdm={modoAdm}
             />
         </Container>
     )

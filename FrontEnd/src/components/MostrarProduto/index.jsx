@@ -5,7 +5,7 @@ import { Container, ContentPhoto, CelulaPhoto, ContentProduto, ContentCores, Con
 import { useState, useEffect } from 'react';
 import api from '../../services/api.js';
 
-function MostrarProdutos( { Objetos } ){
+function MostrarProdutos( { Objetos, ModoAdm } ){
 
     const [count, setCount] = useState(0);
     const [objetoSelecionado, setObjetoSelecionado] = useState([]);
@@ -14,7 +14,8 @@ function MostrarProdutos( { Objetos } ){
     const [tamanhosDisponiveis, setTamanhosDisponiveis] = useState([]);
     const [coresDisponiveis, setCoresDisponiveis] = useState([]);
     const [fotos, setFotos] = useState([]);
-    
+    const [textButton, setTextButton] = useState("ADICINAR AO CARRINHO");
+
     const increment = () => setCount(count + 1);
     const decrement = () => {
         if(count-1 >= 0){
@@ -22,6 +23,7 @@ function MostrarProdutos( { Objetos } ){
         }
     }
 
+    
     useEffect(() => {
         if (Objetos.length > 0) {
             const primeiroObjeto = Objetos[0];
@@ -44,6 +46,11 @@ function MostrarProdutos( { Objetos } ){
             }
             resgatarFotos();
         }
+        console.log("MODO ADM: " + ModoAdm)
+        if(ModoAdm == true){
+            setTextButton("EDITAR PRODUTO")
+        }
+        
     },[Objetos]);
     
     const handleObjetoSelecionado = (objeto) => {
@@ -66,6 +73,10 @@ function MostrarProdutos( { Objetos } ){
 
     const handleTamanhoSelecionado = (tamanho) => {
         setTamanhoSelecionado(tamanho);
+    }
+
+    const handleProdutoSelecionado = () => {
+        localStorage.setItem('produtoselecionadoedit', objetoSelecionado.id);
     }
 
     return(
@@ -118,8 +129,8 @@ function MostrarProdutos( { Objetos } ){
                         onDecrement={decrement}
                     />
                 </ContentQuantia>
-                <BotaoCarrinho>
-                    ADICIONAR AO CARRINHO
+                <BotaoCarrinho modoAdm={ModoAdm} onClick={ModoAdm ? handleProdutoSelecionado : null} Link to={ModoAdm ? "/CadastrarProduto" : null}>
+                    {textButton}
                 </BotaoCarrinho>
             </ContentProduto>
         </Container>

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from 'react-router-dom';
 
 export const Container = styled.div `
     height: 100%;
@@ -102,7 +103,7 @@ export const ContentQuantia = styled.div `
     height: 50px;
 `
 
-export const BotaoCarrinho = styled.div `
+export const BotaoCarrinho = styled(Link) `
     display:flex;
     margin-top: 50px;
     align-items: center;
@@ -111,10 +112,11 @@ export const BotaoCarrinho = styled.div `
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     height: 50px;
     width: 350px;
-    background-color: black;
+    background-color: ${props=> props.modoAdm ? 'red' : 'black'};
     border-radius: 8px;
     border: 1px solid-black;
     color: white;
     cursor: pointer;
+    text-decoration:none;
 `
 

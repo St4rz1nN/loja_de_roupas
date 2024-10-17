@@ -8,11 +8,16 @@ import { use } from 'react';
 import { useState, useEffect } from 'react';
 
 import api from '../../services/api.js'
+import { SiTruenas } from 'react-icons/si';
 
 function Produtos() {
 
 
   const filtrosComponent = [
+    {
+      nome: "TIPO",
+      subfiltro: ["Camisa", "Camiseta", "TacTel", "Calças"]
+    },
     {
       nome: "TAMANHO",
       subfiltro: ["PP", "P", "M", "G", "GG"]
@@ -20,14 +25,16 @@ function Produtos() {
     {
       nome: "COR",
       subfiltro: ["Preto", "Branco", "Azul", "Verde", "Amarelo", "Vermelho"]
-    },];
+    },
+  
+  ];
 
   const [objetos, setObjetos] = useState([]);
   const [produtosFiltrados, setProdutosFiltrados] = useState([]);
 
 
   //Modal
-
+  const [modoAdm, setModoAdm] = useState(false);
   const [modalVisivel, setModalVisivel] = useState(true);
   const [tipoModal, setTipoModal] = useState("Carregando");
   const [mensagemModal, setMensagemModal] = useState("");
@@ -59,6 +66,12 @@ function Produtos() {
 
   useEffect(()=> {
     ResgatarObjetos();
+    const valorRecuperado = JSON.parse(localStorage.getItem('modoadm'));
+    console.log("Valor Recuperado: " + valorRecuperado)
+    if(valorRecuperado == true){
+      setModoAdm(true);
+      console.log("TESTER SETTER")
+    }
   },[])
 
   useEffect(() => {
@@ -74,7 +87,8 @@ function Produtos() {
   return (
       <Container>
           <Header
-              titleName="LOJA ROUPAS"
+              administrador={modoAdm}
+              subLinks={!modoAdm}
           />
           <Modal
             Height={modalHeight}
@@ -97,6 +111,7 @@ function Produtos() {
               <Listagem
                   Objetos={produtosFiltrados}
                   Filtros={filtrosComponent}
+                  ModoAdm={modoAdm}
               />
              </ContentListagem>
           </Content>

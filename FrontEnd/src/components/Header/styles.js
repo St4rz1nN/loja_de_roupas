@@ -15,7 +15,7 @@ export const ContentPrincipal = styled.div `
 `
 
 export const ContentTitle = styled.div `
-    width:400px;
+    width:800px;
 `
 
 export const Title = styled(Link) `
@@ -149,3 +149,10 @@ export const Text = styled.div`
         text-decoration: underline;
     }
 `
+
+export const Icon = styled.div`
+  display: inline-flex;
+  align-items: center;
+  height: 40%;
+  width: 20%;
+`;

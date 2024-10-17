@@ -14,6 +14,7 @@ export const Content = styled.div `
     margin-top: 50px;
 `
 
+
 export const ContentHeader = styled.div `
     display: flex;
     justify-content: row;

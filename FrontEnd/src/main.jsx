@@ -5,7 +5,9 @@ import Produtos from './containers/Produtos/index'
 import VisualizarProduto from './containers/VisualizarProduto/index'
 import './styles/global.css'
 import { BrowserRouter, createBrowserRouter, RouterProvider } from 'react-router-dom';
-import CadastrarProduto from './containers/CadastrarProduto'
+import CadastrarProduto from './containers/Administrador/CadastrarProduto'
+import PainelAdministrador from './containers/Administrador/PainelAdministrador'
+import PainelProdutos from './containers/Administrador/PainelProdutos'
 
 const router = createBrowserRouter([
   {
@@ -26,6 +28,16 @@ const router = createBrowserRouter([
   {
     path: "/cadastrarproduto",
     element: <CadastrarProduto />
+  },
+
+  {
+    path: "/paineladministrador",
+    element: <PainelAdministrador />
+  },
+
+  {
+    path: "/painelprodutos",
+    element: <PainelProdutos />
   },
 ])
 

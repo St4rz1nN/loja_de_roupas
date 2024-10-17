@@ -1,9 +1,11 @@
 
-import {Container, Celula } from './styles.js'
+import {Container, Celula, ButtonEdit } from './styles.js'
+import { MdEdit } from "react-icons/md";
+
 
 import Produto from '../../components/Produto'
 
-const Listagem = ({Objetos, Filtros}) => {
+const Listagem = ({Objetos, Filtros, ModoAdm}) => {
 
     const nomesVistos = new Set();
 
@@ -57,13 +59,23 @@ const Listagem = ({Objetos, Filtros}) => {
             {objetosUmPorNome.map(objeto =>
                 {
                 const {tamanhos, cores} = handleFiltrosPorProduto(objeto.nome)
+                if(ModoAdm){
+                    console.log("MODO ADM!")
+                }
                 return(
-                    <Celula key={objeto.nome} onClick={() => handlePodutosId(objeto.nome)}>
+                    <Celula key={objeto.nome} onClick={() => handlePodutosId(objeto.nome)} modoAdm={ModoAdm}>
                         <Produto
                             Objeto={objeto}
                             Tamanhos={tamanhos}
                             Cores={cores}
                         />
+                        {
+                            ModoAdm ? 
+                            <ButtonEdit onClick={() => handleRemove(index)}>
+                                <MdEdit size={20} color="#ff0000" />
+                            </ButtonEdit> : null
+
+                        }
                     </Celula>
                 )
             }

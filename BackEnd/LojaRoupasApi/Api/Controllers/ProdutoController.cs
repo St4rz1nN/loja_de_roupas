@@ -157,9 +157,55 @@ namespace LojaRoupasApi.Api.Controllers
 
 
         [HttpPut]
-        public async Task<IActionResult> Update([FromBody] ProdutoDto produtoDto)
+        public async Task<IActionResult> Update([FromBody] ProdutoDto produtoDto, IFormFile[] photos)
         {
             await _produtoService.UpdateAsync(produtoDto);
+
+
+            if (photos != null)
+            {
+
+                var storagePath = Path.Combine("Storage");
+
+                var produtoPasta = Path.Combine(storagePath, produtoDto.Id.ToString());
+
+                if (Directory.Exists(produtoPasta))
+                {
+                    Directory.Delete(produtoPasta);
+                }
+
+                if (!Directory.Exists(produtoPasta))
+                {
+                    Directory.CreateDirectory(produtoPasta);
+                }
+
+                foreach (var photo in photos)
+                {
+                    if (photo.Length == 0)
+                    {
+                        continue;
+                    }
+
+                    var filePath = Path.Combine(produtoPasta, photo.FileName);
+
+                    int fileIndex = 1;
+                    while (System.IO.File.Exists(filePath))
+                    {
+                        var fileNameWithoutExtension = Path.GetFileNameWithoutExtension(photo.FileName);
+                        var fileExtension = Path.GetExtension(photo.FileName);
+                        var fileName = $"{fileNameWithoutExtension}_{fileIndex}{fileExtension}";
+                        filePath = Path.Combine(produtoPasta, fileName);
+                        fileIndex++;
+                    }
+
+                    using (var fileStream = new FileStream(filePath, FileMode.Create))
+                    {
+                        await photo.CopyToAsync(fileStream);
+                    }
+                }
+            }
+
+
             return Ok(produtoDto);
         }
 
